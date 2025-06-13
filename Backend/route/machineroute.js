@@ -49,5 +49,15 @@ router.get("/getmachine", async (req,res) => {
     }
 })
 
+router.get("/getmachineid/:id", async (req,res) => {
+    try{
+        const newmachine = await machine.findById(req.params.id);
+        res.json(newmachine);
+    }catch(e){
+        res.status(500).json({msg: "machine not found", error: e.message});
+    }
+})
+
+
 
 module.exports = router;

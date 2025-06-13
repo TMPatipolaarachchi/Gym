@@ -11,7 +11,7 @@ const Prehomepage = () => {
     {
       title: 'Supplement',
       image: 'https://www.stack3d.com/cdn-cgi/image/w=840,q=50,f=auto/wp-content/uploads/2016/05/alphaprowhey.jpg',
-      route: '/addsuplement',
+      route: '/machine',
       color: 'from-blue-900/70',
       bgColor: 'bg-blue-800',
     },
