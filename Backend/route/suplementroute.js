@@ -49,13 +49,5 @@ router.get("/getsuplement", async(req,res) => {
     }
 })
 
-router.get("/getusersuplement", async(req,res) => {
-    try{
-        const newsuplement = await suplement.find({userid: req.session.authuser.id})
-        res.json(newsuplement);
-    }catch(e){
-        res.status(500).json({msg: "suplement not found", error: e.message});
-    }
-})
 
 module.exports = router;

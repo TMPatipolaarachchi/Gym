@@ -15,11 +15,10 @@ router.post("/addmachine", async (req,res) => {
       
           
           const user = await authuser.findById(req.session.authuser.id);
-          
-        
           if (!user) {
             return res.status(403).json({ msg: "user access required" });
           }
+
 
         const newmachine = new machine({
             mtitle:req.body.mtitle,

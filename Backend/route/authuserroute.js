@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const authuser = require('../model/authuser');
 const bcrypt = require('bcrypt');
+const machine = require('../model/machine');
+const suplement = require('../model/suplement');
 
 router.get("/test", (req,res) => {
     res.send("hello authuser");
@@ -19,7 +21,6 @@ router.post("/register", async (req,res) => {
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(upassword,salt);
-
     const userrole = urole && ['user', 'admin'].includes(urole)? urole:"user";
 
     const newuser = new authuser({
@@ -50,6 +51,7 @@ router.post("/login", async (req,res) => {
         }
 
         req.session.authuser = {id: exuser.id, uname: exuser.uname, uemail: exuser.uemail, urole: exuser.urole};
+        
 
         res.status(200).json({msg: "successfully login", authuser:req.session.authuser})
     }catch(e){
@@ -68,7 +70,18 @@ router.get("/profile", async (req,res) => {
         if(!exuser){
             return res.status(404).json({msg: "user not found"});
         }
-        res.status(200).json(exuser);
+
+        const exmachine = await machine.find({userid: req.session.authuser.id});
+        if(!exmachine){
+            return res.status(404).json({msg: "machine not found"});
+        }
+
+         const exsupplement = await suplement.find({userid: req.session.authuser.id});
+        if(!exsupplement){
+            return res.status(404).json({msg: "supplement not found"});
+        }
+
+        res.status(200).json({ authuser: exuser, machine: exmachine, supplement: exsupplement});
     
     }catch(e){
         res.status(500).json({msg: "server error", error: e.message});
