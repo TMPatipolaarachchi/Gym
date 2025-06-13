@@ -31,7 +31,7 @@ app.use(session({
 app.use(cors({origin: 'http://localhost:5173', credentials: true}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.get("/", (req,res) => res.send("hello"));
+app.get("/", (req,res) => res.send("hello guys!"));
 
 app.use("/api/authuser", authuserroute)
 app.use("/api/machine", machineroute)
