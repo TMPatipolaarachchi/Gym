@@ -36,7 +36,7 @@ router.post("/addsuplement", async (req, res) => {
         suplement: newsuplement
       });
     } catch (e) {
-      res.status(500).json({ msg: "suplement add failed", error: e.message });
+      res.status(500).json({ msg: "suplement add failed"});
     }
   });
   
@@ -45,7 +45,7 @@ router.get("/getsuplement", async(req,res) => {
         const newsuplement = await suplement.find();
         res.json(newsuplement);
     }catch{
-        res.status(500).json({msg: "suplement not found", error: e.message});
+        res.status(500).json({msg: "suplement not found"});
     }
 })
 

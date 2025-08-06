@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongodDBStore = require('connect-mongodb-session')(session);
 
-const dburl = "mongodb+srv://tmpatipolaarachchi:2455455@cluster0.kbig3am.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const dburl = "mongodb+srv://tmpatipolaarachchi:2455455@cluster0.kw8akcf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 const store = new MongodDBStore({
     uri:dburl,

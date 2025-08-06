@@ -31,7 +31,7 @@ router.post("/register", async (req,res) => {
     res.status(201).json({msg: "registered successfully"});
 
     }catch(e){
-        res.status(500).json({msg: "registered unsuccessfullly", error: e.message});
+        res.status(500).json({msg: "registered unsuccessfullly"});
     }
 
 })
@@ -55,7 +55,7 @@ router.post("/login", async (req,res) => {
 
         res.status(200).json({msg: "successfully login", authuser:req.session.authuser})
     }catch(e){
-        res.status(500).json({msg: "login unsuccessfully ", error: e.message});
+        res.status(500).json({msg: "login unsuccessfully "});
     }
 })
 
@@ -84,7 +84,7 @@ router.get("/profile", async (req,res) => {
         res.status(200).json({ authuser: exuser, machine: exmachine, supplement: exsupplement});
     
     }catch(e){
-        res.status(500).json({msg: "server error", error: e.message});
+        res.status(500).json({msg: "server error"});
     } 
 })
 

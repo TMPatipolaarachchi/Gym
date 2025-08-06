@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import bodybuilderImage from '../assets/sudda.png'; 
+import Layout from '../components/Layout';
 
 const Login = () => {
     const [user,setuser] = useState({
@@ -68,6 +69,8 @@ const Login = () => {
 
   return (
     
+      <Layout>
+
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
@@ -140,7 +143,7 @@ const Login = () => {
         </div>
       </div>
    
-
+  </Layout>
   )
 }
 

@@ -36,7 +36,7 @@ router.post("/addmachine", async (req,res) => {
         });
 
     }catch(e){
-        res.status(500).json({msg: "machine added failed", error: e.message});
+        res.status(500).json({msg: "machine added failed"});
     }
 })
 
@@ -45,7 +45,7 @@ router.get("/getmachine", async (req,res) => {
         const newmachine = await machine.find();
         res.json(newmachine);
     }catch(e){
-        res.status(500).json({msg: "machine not found", error: e.message});
+        res.status(500).json({msg: "machine not found"});
     }
 })
 
@@ -54,7 +54,7 @@ router.get("/getmachineid/:id", async (req,res) => {
         const newmachine = await machine.findById(req.params.id);
         res.json(newmachine);
     }catch(e){
-        res.status(500).json({msg: "machine not found", error: e.message});
+        res.status(500).json({msg: "machine not found"});
     }
 })
 

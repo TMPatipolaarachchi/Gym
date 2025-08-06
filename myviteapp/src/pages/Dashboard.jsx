@@ -19,7 +19,7 @@ const Dashboard = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:3000/api/authuser/logout', {}, { withCredentials: true });
+      await axios.post('http://localhost:3000/api/authuser/logout', { withCredentials: true });
       navigate('/login');
     } catch (e) {
       console.error('Logout failed:', e);
